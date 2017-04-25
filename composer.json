@@ -1,0 +1,30 @@
+{
+  "name": "inquid/yii2-facturacom",
+  "type": "yii2-extension",
+  "description": "Integration tu consume Factura.com API (http://docs.facturacom.apiary.io/#introduction/enviroment)",
+  "keywords": [
+    "facturacom",
+    "facturacion"
+  ],
+  "homepage": "https://github.com/inquid/yii2-facturacom",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Cesar Fernandez",
+      "email": "cfernandez@diferenteweb.mx",
+      "homepage": "http://diferenteweb.mx"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/inquid/yii2-facturacom/issues",
+    "source": "https://github.com/inquid/yii2-facturacom"
+  },
+  "require": {
+    "yiisoft/yii2-httpclient": "~2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "inquid\\facturacom\\": "src"
+    }
+  }
+}
