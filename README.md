@@ -1,5 +1,6 @@
-# yii2-facturacom
-=================
+yii2-facturacom
+=====================
+
 Librería para usar el API de http://docs.facturacom.apiary.io/#
 
 ## Instalación
@@ -34,12 +35,12 @@ $config = [
         ],
 ```
 
-##Uso
+## Uso
 ```php
 // Lista de Clientes
 $response = Yii::$app->facturacom->getClientes();
 
-// Se debe enviar objetos ya sea de Model o ActiveRecord, con el mismo nombre de los parametros 
+// Se debe enviar objetos ya sea como Model o ActiveRecord, con el mismo nombre de los parametros 
 // que usa el API de Facturacom, o a través los modelos de la extensión
 
     $cliente = new \inquid\facturacom\models\Cliente();
