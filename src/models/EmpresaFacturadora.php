@@ -4,6 +4,10 @@ namespace inquid\facturacom\models;
 
 use yii\base\Model;
 
+/**
+ * Class EmpresaFacturadora
+ * @package inquid\facturacom\models
+ */
 class EmpresaFacturadora extends Model
 {
     public $razons;

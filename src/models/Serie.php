@@ -4,6 +4,10 @@ namespace inquid\facturacom\models;
 
 use yii\base\Model;
 
+/**
+ * Class Serie
+ * @package inquid\facturacom\models
+ */
 class Serie extends Model
 {
     public $serieID;

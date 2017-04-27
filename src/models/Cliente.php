@@ -4,6 +4,10 @@ namespace inquid\facturacom\models;
 
 use yii\base\Model;
 
+/**
+ * Class Cliente
+ * @package inquid\facturacom\models
+ */
 class Cliente extends Model
 {
     public $nombre;

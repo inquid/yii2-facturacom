@@ -9,14 +9,27 @@
 namespace inquid\facturacom;
 
 
+use inquid\facturacom\models\Error;
+use Yii;
 use yii\base\Component;
+use yii\base\Model;
+use yii\helpers\Json;
 use yii\httpclient\Client;
 
+/**
+ * Class HttpClient
+ * @package inquid\facturacom
+ */
 class HttpClient extends Component
 {
     const API_VERSION = 'api/v1';
     const URL_FACTURACOM = 'https://factura.com/';
     const URL_FACTURACOM_SANDBOX = 'http://devfactura.in/';
+
+    private $_options = [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HEADER => false,
+    ];
 
     public $apiKey;
     public $secretKey;
@@ -37,10 +50,67 @@ class HttpClient extends Component
         }
         $request->setHeaders($this->getHeaders());
         $request->setMethod($method);
-        $request->setOptions($this->getOptions());
+        $request->setOptions($this->_options);
         return $request->send();
     }
 
+    /**
+     * @param \yii\httpclient\Response $response
+     * @param string $className
+     * @param bool $isList
+     * @return array|object|Model|Error
+     */
+    protected function modelResponse($response, $className, $isList = false)
+    {
+        if ($response && ($headers = $response->getHeaders())) {
+            if ($headers->get('http-code') == 200 || $headers->get('http-code') == 201) {
+                $content = Json::decode($response->getContent());
+                if ($content['status'] == 'success') {
+                    $data = isset($content['Data']) ? $content['Data'] : $content['data'];
+                    if ($isList) {
+                        $list = [];
+                        foreach ($data as $row) {
+                            $row['class'] = $className;
+                            $list[] = Yii::createObject($row);
+                        }
+                        return $list;
+                    } else {
+                        $data['class'] = $className;
+                        return Yii::createObject($data);
+                    }
+                } elseif ($content['status'] == 'error') {
+                    return new Error($headers->get('http-code'), $content['message']);
+                }
+            } else {
+                return new Error($headers->get('http-code'));
+            }
+        }
+        return new Error(500);
+    }
+
+    /**
+     * @param \yii\httpclient\Response $response
+     * @return boolean|Error
+     */
+    protected function booleanResponse($response)
+    {
+        if ($response && ($headers = $response->getHeaders())) {
+            if ($headers->get('http-code') == 200 || $headers->get('http-code') == 201) {
+                $content = Json::decode($response->getContent());
+                if ($content['status'] == 'success') {
+                    return true;
+                } elseif ($content['status'] == 'error') {
+                    return new Error($headers->get('http-code'), $content['message']);
+                }
+            }
+        }
+        return new Error(500);
+    }
+
+    /**
+     * Gets sandbox or production url endpoint
+     * @return string
+     */
     private function getUrl()
     {
         if ($this->isSandbox) {
@@ -50,20 +120,15 @@ class HttpClient extends Component
         }
     }
 
+    /**
+     * @return array headers with auth
+     */
     private function getHeaders()
     {
         return [
             "Content-Type: application/json",
             "F-API-KEY: {$this->apiKey}",
             "F-SECRET-KEY: {$this->secretKey}"
-        ];
-    }
-
-    private function getOptions()
-    {
-        return [
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_HEADER => false,
         ];
     }
 }
