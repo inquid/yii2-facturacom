@@ -64,5 +64,5 @@ $response = Yii::$app->facturacom->getClientes();
     ]);
   $response = Yii::$app->facturacom->createCliente($cliente);
 ```
-Inline-style: 
+Iniciativa Programa México: 
 ![Iniciativa Programa México](https://lh5.googleusercontent.com/k6u-DepqdgZzTk15Kxx6UPuZJ0ldiv6EPuhhJYRp8QfB89kLxU-D1D7YdYST-gGXnSxl9LFixzn5sYg=w1920-h990)
