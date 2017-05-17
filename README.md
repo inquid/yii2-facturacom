@@ -3,6 +3,9 @@ yii2-facturacom
 
 Librería para usar el API de http://docs.facturacom.apiary.io/#
 
+![GitHub Logo](https://lh5.googleusercontent.com/k6u-DepqdgZzTk15Kxx6UPuZJ0ldiv6EPuhhJYRp8QfB89kLxU-D1D7YdYST-gGXnSxl9LFixzn5sYg=w1920-h990)
+Format: ![Alt Text](url)
+
 ## Instalación
 
 La forma preferida para instalar esta extensión es a través de [composer](http://getcomposer.org/download/).
