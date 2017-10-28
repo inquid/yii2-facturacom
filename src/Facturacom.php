@@ -6,6 +6,7 @@ use inquid\facturacom\models\Cliente;
 use inquid\facturacom\models\EmpresaFacturadora;
 use inquid\facturacom\models\Error;
 use inquid\facturacom\models\Factura;
+use inquid\facturacom\models\Factura33;
 use inquid\facturacom\models\Serie;
 use yii\base\Model;
 use yii\db\ActiveRecord;
@@ -145,6 +146,24 @@ class Facturacom extends HttpClient
     public function createFactura($factura)
     {
         $model = new Factura();
+        $model->setAttributes($factura->getAttributes());
+        if ($factura->validate()) {
+            try {
+                return $this->booleanResponse($this->sendRequest('post', 'invoice/create', $model->getAttributes()));
+            } catch (\Exception $exception) {
+                return new Error(500, $exception->getMessage());
+            }
+        }
+        return new Error(500, $model->getErrors());
+    }
+
+    /**
+     * @param Model|ActiveRecord $factura
+     * @return boolean|Error
+     */
+    public function createFactura33($factura)
+    {
+        $model = new Factura33();
         $model->setAttributes($factura->getAttributes());
         if ($factura->validate()) {
             try {

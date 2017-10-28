@@ -23,6 +23,7 @@ use yii\httpclient\Client;
 class HttpClient extends Component
 {
     const API_VERSION = 'api/v1';
+    const API_VERSION_3 = 'api/v3';
     const URL_FACTURACOM = 'https://factura.com/';
     const URL_FACTURACOM_SANDBOX = 'http://devfactura.in/';
 
