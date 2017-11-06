@@ -20,9 +20,9 @@ use yii\httpclient\Client;
  * Class HttpClient
  * @package inquid\facturacom
  */
-class HttpClient extends Component
+class HttpClientV3 extends Component
 {
-    const API_VERSION = 'api/v1';
+    const API_VERSION = 'api/v3';
     const URL_FACTURACOM = 'https://factura.com/';
     const URL_FACTURACOM_SANDBOX = 'http://devfactura.in/';
 
@@ -62,10 +62,11 @@ class HttpClient extends Component
      */
     protected function modelResponse($response, $className, $isList = false)
     {
+        Yii::info($response);
         if ($response && ($headers = $response->getHeaders())) {
             if ($headers->get('http-code') == 200 || $headers->get('http-code') == 201) {
                 $content = Json::decode($response->getContent());
-                if ($content['status'] == 'success') {
+                if ($content['response'] == 'success') {
                     $data = isset($content['Data']) ? $content['Data'] : $content['data'];
                     if ($isList) {
                         $list = [];
@@ -78,7 +79,7 @@ class HttpClient extends Component
                         $data['class'] = $className;
                         return Yii::createObject($data);
                     }
-                } elseif ($content['status'] == 'error') {
+                } elseif ($content['response'] == 'error') {
                     return new Error($headers->get('http-code'), $content['message']);
                 }
             } else {
