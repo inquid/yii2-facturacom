@@ -107,6 +107,14 @@ class Factura33 extends Model
      */
     public $TipoCambio;
     /**
+     * @var float $Total
+     */
+    public $Total;
+    /**
+     * @var string $TipoDeComprobante
+     */
+    public $TipoDeComprobante;
+    /**
      * @var string $MetodoPago
      */
     public $MetodoPago;
@@ -115,9 +123,9 @@ class Factura33 extends Model
      */
     public $LugarExpeicion;
     /**
-     * @var string $confirmacion
+     * @var string $Confirmacion
      */
-    public $confirmacion;
+    public $Confirmacion;
     /**
      * @var string $UsoCFDI
      */
@@ -142,31 +150,13 @@ class Factura33 extends Model
         "UID" => ""
     ];
     /**
-     * @var array $Conceptos
+     * @var Conceptos $Conceptos
      */
     public $Conceptos = [];
-    /**
-     * @var string $NumeroPedimento
-     */
-    public $NumeroPedimento;
-    /**
-     * @var string $CuentaPredial
-     */
-    public $CuentaPredial;
-    /**
-     * @var float $Partes
-     */
-    public $Partes;
-    /**
-     * @var float $Complemento
-     */
-    public $Complemento;
-
-
 
     /**
      * @return array the validation rules.
-     */
+
     public function rules()
     {
         return [
@@ -178,5 +168,5 @@ class Factura33 extends Model
             [['TipoCambio', 'Serie', 'NumOrder'], 'number'],
             ['FechaFromAPI', 'date', 'format' => "yyyy-MM-dd'T'HH:mm:ss"]
         ];
-    }
+    }*/
 }

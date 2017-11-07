@@ -22,7 +22,7 @@ use yii\httpclient\Client;
  */
 class HttpClientV3 extends Component
 {
-    const API_VERSION = 'api/v3';
+    public $API_VERSION = 'api/v3';
     const URL_FACTURACOM = 'https://factura.com/';
     const URL_FACTURACOM_SANDBOX = 'http://devfactura.in/';
 
@@ -98,9 +98,9 @@ class HttpClientV3 extends Component
         if ($response && ($headers = $response->getHeaders())) {
             if ($headers->get('http-code') == 200 || $headers->get('http-code') == 201) {
                 $content = Json::decode($response->getContent());
-                if ($content['status'] == 'success') {
+                if ($content['response'] == 'success') {
                     return true;
-                } elseif ($content['status'] == 'error') {
+                } elseif ($content['response'] == 'error') {
                     return new Error($headers->get('http-code'), $content['message']);
                 }
             }
@@ -115,9 +115,9 @@ class HttpClientV3 extends Component
     private function getUrl()
     {
         if ($this->isSandbox) {
-            return self::URL_FACTURACOM_SANDBOX . self::API_VERSION;
+            return self::URL_FACTURACOM_SANDBOX . $this->API_VERSION;
         } else {
-            return self::URL_FACTURACOM . self::API_VERSION;
+            return self::URL_FACTURACOM . $this->API_VERSION;
         }
     }
 
