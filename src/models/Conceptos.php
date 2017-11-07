@@ -44,7 +44,7 @@ class Conceptos extends Model
     /**
      * @var float
      */
-    public $ValroUnitario;
+    public $ValorUnitario;
     /**
      * @var float
      */

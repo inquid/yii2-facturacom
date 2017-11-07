@@ -23,9 +23,9 @@ class Factura33 extends Model
      */
     public $TipoCfdi;
     /**
-     * @var string $NumOrden
+     * @var string $NumOrder
      */
-    public $NumOrden;
+    public $NumOrder;
     /**
      * @var string $Comentarios
      */
@@ -119,9 +119,9 @@ class Factura33 extends Model
      */
     public $MetodoPago;
     /**
-     * @var integer $LugarExpeicion
+     * @var integer $LugarExpedicion
      */
-    public $LugarExpeicion;
+    public $LugarExpedicion;
     /**
      * @var string $Confirmacion
      */
@@ -143,9 +143,9 @@ class Factura33 extends Model
         "RegimenFiscal" => ""
     ];
     /**
-     * @var array $Recpetor
+     * @var array $Receptor
      */
-    public $Recpetor = [
+    public $Receptor = [
         "ResidenciaFiscal" => "",
         "UID" => ""
     ];
