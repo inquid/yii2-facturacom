@@ -9,6 +9,7 @@
 namespace inquid\facturacom;
 
 
+use app\models\Configuration;
 use inquid\facturacom\models\Error;
 use Yii;
 use yii\base\Component;
@@ -33,7 +34,24 @@ class HttpClientV3 extends Component
 
     public $apiKey;
     public $secretKey;
+    public $rfc;
     public $isSandbox = false;
+
+    public function init()
+    {
+        if (!isset($this->apiKey) && isset($this->rfc)) {
+            $key = Configuration::find()->where(['system_type' => 'facturacom_api_key', 'param' => $this->rfc])->select('system_value')->one();
+            if (isset($key)){
+                $this->apiKey = $key->system_value;
+            }
+
+        }
+        if (!isset($this->secretKey) && isset($this->rfc)) {
+            $secret = Configuration::find()->where(['system_type' => 'facturacom_api_secret', 'param' => $this->rfc])->select('system_value')->one();
+            if (isset($secret))
+                $this->secretKey = $secret->system_value;
+        }
+    }
 
     /**
      * @param string $method
