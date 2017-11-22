@@ -85,7 +85,6 @@ class Cliente extends Model
                 [
                     'nombre',
                     'apellidos',
-                    'email',
                     'rfc',
                     'razons',
                     'calle',

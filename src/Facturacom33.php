@@ -44,7 +44,7 @@ class Facturacom33 extends HttpClientV3
         $this->API_VERSION = 'api/v1';
         $model = new Cliente();
         $model->setAttributes($cliente->getAttributes());
-        if ($cliente->validate()) {
+        if ($model->validate()) {
             try {
                 return $this->booleanResponse($this->sendRequest('post', 'clients/create', $model->getAttributes()));
             } catch (\Exception $exception) {
