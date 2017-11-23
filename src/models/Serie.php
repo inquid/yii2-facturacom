@@ -15,6 +15,30 @@ class Serie extends Model
     public $serieType;
 
     /**
+     * @return mixed
+     */
+    public function getSerieID()
+    {
+        return $this->serieID;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSerieName()
+    {
+        return $this->serieName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSerieType()
+    {
+        return $this->serieType;
+    }
+
+    /**
      * @param string $serieID
      */
     public function setSerieID($serieID)

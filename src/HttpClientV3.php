@@ -80,11 +80,12 @@ class HttpClientV3 extends Component
      */
     protected function modelResponse($response, $className, $isList = false)
     {
-        Yii::info($response);
+        Yii::info(json_encode($response));
         if ($response && ($headers = $response->getHeaders())) {
             if ($headers->get('http-code') == 200 || $headers->get('http-code') == 201) {
                 $content = Json::decode($response->getContent());
-                if ($content['response'] == 'success') {
+                $response = isset($content['response']) ? $content['response'] : $content['status'];
+                if ($response == 'success') {
                     $data = isset($content['Data']) ? $content['Data'] : $content['data'];
                     if ($isList) {
                         $list = [];
@@ -97,7 +98,7 @@ class HttpClientV3 extends Component
                         $data['class'] = $className;
                         return Yii::createObject($data);
                     }
-                } elseif ($content['response'] == 'error') {
+                } elseif ($response == 'error') {
                     return new Error($headers->get('http-code'), $content['message']);
                 }
             } else {
