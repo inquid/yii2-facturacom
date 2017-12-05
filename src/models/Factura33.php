@@ -167,7 +167,7 @@ class Factura33 extends ActiveRecord
     /**
      * @inheritdoc
      */
-    public function rules()
+    /*public function rules()
     {
         return [
             [['rfc', 'forma_pago', 'metodo_pago', 'num_orden', 'serie_factura', 'send_email', 'exchange_rate', 'currencie'], 'required'],
@@ -179,7 +179,7 @@ class Factura33 extends ActiveRecord
             [['forma_pago'], 'string', 'max' => 100],
             [['num_orden'], 'string', 'max' => 25]
         ];
-    }
+    }*/
 
     /**
      * @inheritdoc

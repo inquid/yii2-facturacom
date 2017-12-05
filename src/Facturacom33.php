@@ -11,10 +11,11 @@ namespace inquid\facturacom;
 
 use inquid\facturacom\models\Cliente;
 use inquid\facturacom\models\EmpresaFacturadora;
+use inquid\facturacom\models\Error;
 use inquid\facturacom\models\Factura;
 use inquid\facturacom\models\Factura33;
-use inquid\facturacom\models\Error;
 use inquid\facturacom\models\Serie;
+use inquid\facturacom\models\ResponseFactura;
 use yii\base\Model;
 use yii\db\ActiveRecord;
 
@@ -158,7 +159,7 @@ class Facturacom33 extends HttpClientV3
         $this->API_VERSION = 'api/v3';
         if ($factura->validate()) {
             try {
-                return $this->booleanResponse($this->sendRequest('post', 'cfdi33/create', $factura->getAttributes()));
+                return $this->sendRequest('post', 'cfdi33/create', $factura);
             } catch (\Exception $exception) {
                 return new Error(500, $exception->getMessage());
             }
