@@ -86,7 +86,7 @@ class Conceptos extends ActiveRecord
 
     /**
      * @inheritdoc
-     */
+
     public function rules()
     {
         return [
@@ -100,7 +100,7 @@ class Conceptos extends ActiveRecord
             [['pedimento_aduana'], 'string', 'max' => 20],
             [['locacion_aduana'], 'string', 'max' => 75]
         ];
-    }
+    }*/
 
     /**
      * @inheritdoc

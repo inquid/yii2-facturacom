@@ -23,6 +23,7 @@ class Cliente extends Model
     public $estado;
     public $localidad;
     public $NumRegIdTrib;
+    public $Pais;
     /* Contacto */
     public $nombre;
     public $apellidos;
@@ -53,7 +54,7 @@ class Cliente extends Model
      * @param $telefono
      * @param array $cuentas_banco
      */
-    public function setClient($razons, $rfc, $calle, $numero_exterior, $numero_interior, $colonia, $codpos, $ciudad, $delegacion, $estado, $localidad, $NumRegIdTrib, $nombre, $apellidos, $email, $telefono, array $cuentas_banco)
+    public function setClient($razons, $rfc, $calle, $numero_exterior, $numero_interior, $colonia, $codpos, $ciudad, $delegacion, $estado, $localidad, $NumRegIdTrib, $nombre, $apellidos, $email, $telefono, array $cuentas_banco, $pais = "México")
     {
         $this->razons = $razons;
         $this->rfc = $rfc;
