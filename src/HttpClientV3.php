@@ -41,7 +41,7 @@ class HttpClientV3 extends Component
     {
         if (!isset($this->apiKey) && isset($this->rfc)) {
             $key = Configuration::find()->where(['system_type' => 'facturacom_api_key', 'param' => $this->rfc])->select('system_value')->one();
-            if (isset($key)){
+            if (isset($key)) {
                 $this->apiKey = $key->system_value;
             }
 
@@ -95,6 +95,9 @@ class HttpClientV3 extends Component
                         }
                         return $list;
                     } else {
+                        if ($className == null) {
+                            return $data;
+                        }
                         $data['class'] = $className;
                         return Yii::createObject($data);
                     }

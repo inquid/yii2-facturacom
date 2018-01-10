@@ -15,7 +15,6 @@ use inquid\facturacom\models\Error;
 use inquid\facturacom\models\Factura;
 use inquid\facturacom\models\Factura33;
 use inquid\facturacom\models\Serie;
-use inquid\facturacom\models\ResponseFactura;
 use yii\base\Model;
 use yii\db\ActiveRecord;
 
@@ -210,15 +209,10 @@ class Facturacom33 extends HttpClientV3
     /**
      * @param $format
      * @param $uid
-     * @return string|Error
+     * @param string $path
      */
-    public function getPdfXmlFiles($format, $uid)
+    public function getPdfXmlFiles($format, $uid, $path = "files/facturas/xml/")
     {
-        try {
-            return $this->modelResponse($this->sendRequest('get', "invoice/$uid/($format)"), Factura::className(),
-                true);
-        } catch (\Exception $exception) {
-            return new Error(500, $exception->getMessage());
-        }
+        file_put_contents($path . $uid . "." . $format, fopen("https://factura.com/api/publica/cfdi33/$uid/$format", 'r'));
     }
 }
