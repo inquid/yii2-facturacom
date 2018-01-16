@@ -199,6 +199,7 @@ class Facturacom33 extends HttpClientV3
      */
     public function cancelFactura($uid)
     {
+        $this->API_VERSION = 'api/v3';
         try {
             return $this->booleanResponse($this->sendRequest('get', "invoice/$uid/cancel"));
         } catch (\Exception $exception) {
