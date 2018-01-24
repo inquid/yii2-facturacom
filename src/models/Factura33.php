@@ -38,6 +38,10 @@ class Factura33 extends ActiveRecord
      */
     public $Comentarios;
     /**
+     * @var string $Cuenta
+     */
+    public $Cuenta;
+    /**
      * @var boolean $EnviarCorreo
      */
     public $EnviarCorreo;
@@ -206,6 +210,7 @@ class Factura33 extends ActiveRecord
             'fecha_cfdi' => 'Fecha de Emisión',
             'send_email' => 'Enviar email',
             'invoice_comment' => 'Comentarios',
+            'cuenta' => 'Cuenta',
             'exchange_rate' => 'Tipo de cambio (Pesos)',
             'status' => 'Status',
             'iva' => 'IVA'
