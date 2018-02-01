@@ -203,7 +203,7 @@ class Facturacom33 extends HttpClientV3
         try {
             return $this->booleanResponse($this->sendRequest('get', "cfdi33/$uid/cancel"));
         } catch (\Exception $exception) {
-            return new Error(500, $exception->getMessage());
+            return ['code' => 500, 'message' => $exception->getMessage()];
         }
     }
 
