@@ -1,3 +1,11 @@
+<p align="center">
+    <a href="http://www.yiiframework.com/" target="_blank">
+        <img src="http://static.yiiframework.com/files/logo/yii.png" width="400" alt="Yii Framework" />
+    </a>
+</p>
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=contact@inquid.co&item_name=Yii2+extensions+support&item_number=22+Campaign&amount=5%2e00&currency_code=USD)
+
 yii2-facturacom
 =====================
 
@@ -66,3 +74,7 @@ $response = Yii::$app->facturacom->getClientes();
 ```
 Iniciativa Programa México: 
 ![Iniciativa Programa México](https://lh5.googleusercontent.com/k6u-DepqdgZzTk15Kxx6UPuZJ0ldiv6EPuhhJYRp8QfB89kLxU-D1D7YdYST-gGXnSxl9LFixzn5sYg=w1920-h990)
+
+SUPPORT
+-----
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=contact@inquid.co&item_name=Yii2+extensions+support&item_number=22+Campaign&amount=5%2e00&currency_code=USD)
