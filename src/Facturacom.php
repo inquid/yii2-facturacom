@@ -13,6 +13,7 @@ use yii\db\ActiveRecord;
 
 
 /**
+ * @deprecated
  * Class Facturacom
  * @package inquid\facturacom
  */
