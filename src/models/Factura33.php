@@ -144,7 +144,9 @@ class Factura33 extends ActiveRecord
     /**
      * @var array $CfdiRelacionados
      */
-    public $CfdiRelacionados;
+    public $relacionados = [
+
+    ];
     /**
      * @var array $Emisor
      */
@@ -164,6 +166,10 @@ class Factura33 extends ActiveRecord
      * @var Conceptos $Conceptos
      */
     public $Conceptos = [];
+    /**
+     * @var array $Pagos
+     */
+    public $Pagos = [];
 
     use RelationTrait;
 

@@ -107,7 +107,7 @@ class Conceptos extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%items}}';
+        return '{{%conceptos}}';
     }
 
     /**
