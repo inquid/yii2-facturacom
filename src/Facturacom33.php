@@ -165,6 +165,21 @@ class Facturacom33 extends HttpClientV3
         }
         return new Error(500, $factura->getErrors());
     }
+    
+    /**
+     * @param $data
+     * @return Error|\yii\httpclient\Response
+     */
+    public function createComplementoPago($data)
+    {
+        $this->API_VERSION = 'api/v3';
+        try {
+            return $this->sendRequest('post', 'cfdi33/complemento/pagos/create', $data);
+        } catch (\Exception $exception) {
+            return new Error(500, $exception->getMessage());
+        }
+        return new Error(500, $factura->getErrors());
+    }
 
     /**
      * @param string $rfc
