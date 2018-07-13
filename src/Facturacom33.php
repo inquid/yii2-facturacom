@@ -17,6 +17,7 @@ use inquid\facturacom\models\Factura33;
 use inquid\facturacom\models\Serie;
 use yii\base\Model;
 use yii\db\ActiveRecord;
+use yii\helpers\Json;
 
 class Facturacom33 extends HttpClientV3
 {
@@ -165,7 +166,7 @@ class Facturacom33 extends HttpClientV3
         }
         return new Error(500, $factura->getErrors());
     }
-    
+
     /**
      * @param $data
      * @return Error|\yii\httpclient\Response
@@ -174,7 +175,7 @@ class Facturacom33 extends HttpClientV3
     {
         $this->API_VERSION = 'api/v3';
         try {
-            return $this->sendRequest('post', 'cfdi33/complemento/pagos/create', $data);
+            return $this->sendRequestPlainJson('post', 'cfdi33/complemento/pagos/create', $data);
         } catch (\Exception $exception) {
             return new Error(500, $exception->getMessage());
         }

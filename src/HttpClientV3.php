@@ -63,8 +63,29 @@ class HttpClientV3 extends Component
     {
         $client = new Client(['baseUrl' => $this->getUrl() . '/' . $path]);
         $request = $client->createRequest();
+
         if ($data) {
             $request->setData($data);
+        }
+        $request->setHeaders($this->getHeaders());
+        $request->setMethod($method);
+        $request->setOptions($this->_options);
+        return $request->send();
+    }
+
+    /**
+     * @param string $method
+     * @param string $path
+     * @param null|array $data
+     * @return \yii\httpclient\Response
+     */
+    protected function sendRequestPlainJson($method, $path, $data = null)
+    {
+        $client = new Client(['baseUrl' => $this->getUrl() . '/' . $path]);
+        $request = $client->createRequest();
+        $request->setFormat(Client::FORMAT_JSON);
+        if ($data) {
+            $request->setContent($data);
         }
         $request->setHeaders($this->getHeaders());
         $request->setMethod($method);
