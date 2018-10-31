@@ -15,6 +15,7 @@ use inquid\facturacom\models\Error;
 use inquid\facturacom\models\Factura;
 use inquid\facturacom\models\Factura33;
 use inquid\facturacom\models\Serie;
+use inquid\facturacom\models\FacturaReporte;
 use yii\base\Model;
 use yii\db\ActiveRecord;
 use yii\helpers\Json;
