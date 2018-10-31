@@ -190,6 +190,7 @@ class Facturacom33 extends HttpClientV3
      */
     public function getFacturas($rfc = null, $month = null, $year = null)
     {
+        $this->API_VERSION = 'api/v3';
         $params = '/?month=';
         if ($month) {
             $params .= $month;
@@ -202,8 +203,9 @@ class Facturacom33 extends HttpClientV3
         if ($rfc) {
             $params .= $rfc;
         }
+        $params.='&per_page=99999';
         try {
-            return $this->modelResponse($this->sendRequest('post', 'invoices' . $params), Factura::className(), true);
+            return $this->sendRequestPlainJson('get', 'cfdi33/list' . $params);
         } catch (\Exception $exception) {
             return new Error(500, $exception->getMessage());
         }
