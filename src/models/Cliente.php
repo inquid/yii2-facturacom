@@ -33,6 +33,7 @@ class Cliente extends Model
     public $cfdis;
     /* Cuentas de Banco */
     public $cuentas_banco = [];
+    public $UsoCFDI;
 
     /**
      * Cliente constructor.
@@ -115,7 +116,8 @@ class Cliente extends Model
                     'estado',
                     'ciudad',
                     'delegacion',
-                    'localidad'
+                    'localidad',
+                    'UsoCFDI'
                 ],
                 'string',
             ],
@@ -232,6 +234,11 @@ class Cliente extends Model
     public function setCuentasBanco($cuentas_banco)
     {
         $this->cuentas_banco = $cuentas_banco;
+    }
+
+    public function setUsoCFDI($UsoCFDI)
+    {
+        $this->UsoCFDI = $UsoCFDI;
     }
 
     /**
