@@ -34,6 +34,7 @@ class HttpClientV3 extends Component
 
     public $apiKey;
     public $secretKey;
+    public $fPlugin='9d4095c8f7ed5785cb14c0e3b033eeb8252416ed';
     public $rfc;
     public $isSandbox = false;
 
@@ -172,7 +173,8 @@ class HttpClientV3 extends Component
         return [
             "Content-Type: application/json",
             "F-API-KEY: {$this->apiKey}",
-            "F-SECRET-KEY: {$this->secretKey}"
+            "F-SECRET-KEY: {$this->secretKey}",
+            "F-PLUGIN: {$this->fPlugin}"
         ];
     }
 }
