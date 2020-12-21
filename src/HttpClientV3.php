@@ -27,10 +27,7 @@ class HttpClientV3 extends Component
     const URL_FACTURACOM = 'https://factura.com/';
     const URL_FACTURACOM_SANDBOX = 'http://devfactura.in/';
 
-    private $_options = [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HEADER => false,
-    ];
+    private $_options = [];
 
     public $apiKey;
     public $secretKey;
