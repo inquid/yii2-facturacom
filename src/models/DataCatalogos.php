@@ -29,4 +29,8 @@ class DataCatalogos extends Model
      * @var string
      */
     public $use = "";
+    /**
+     * @var string
+     */
+    public $decimals;
 }

@@ -10,8 +10,9 @@ use yii\base\Model;
  */
 class Cliente extends Model
 {
-    public $uuid;
+    public $UID;
     public $razons;
+    public $RazonSocial;
     public $rfc;
     public $calle;
     public $numero_exterior;
@@ -34,6 +35,9 @@ class Cliente extends Model
     /* Cuentas de Banco */
     public $cuentas_banco = [];
     public $UsoCFDI;
+    public $Regimen;
+    
+    
 
     /**
      * Cliente constructor.
@@ -88,6 +92,7 @@ class Cliente extends Model
                     'nombre',
                     'apellidos',
                     'rfc',
+                    'RazonSocial',
                     'razons',
                     'calle',
                     'numero_exterior',
@@ -97,7 +102,7 @@ class Cliente extends Model
                 ],
                 'required'
             ],
-            ['uuid', 'number'],
+            ['UID', 'number'],
             ['cfdis', 'integer'],
             ['email', 'email'],
             ['rfc', 'string', 'length' => [12, 13]],
@@ -125,11 +130,11 @@ class Cliente extends Model
     }
 
     /**
-     * @param $uuid
+     * @param $UID
      */
-    public function setUID($uuid)
+    public function setUID($UID)
     {
-        $this->uuid = $uuid;
+        $this->UID = $UID;
     }
 
     /**
@@ -239,6 +244,11 @@ class Cliente extends Model
     public function setUsoCFDI($UsoCFDI)
     {
         $this->UsoCFDI = $UsoCFDI;
+    }
+    
+    public function setRegimen($Regimen)
+    {
+        $this->Regimen = $Regimen;
     }
 
     /**

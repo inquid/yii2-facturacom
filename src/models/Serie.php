@@ -13,6 +13,8 @@ class Serie extends Model
     public $serieID;
     public $serieName;
     public $serieType;
+    public $serieDescription;
+    public $serieStatus;
 
     /**
      * @return mixed
@@ -60,5 +62,35 @@ class Serie extends Model
     public function setSerieType($serieType)
     {
         $this->serieType = $serieType;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getSerieDescription()
+    {
+        return $this->serieDescription;
+    }
+    
+    /**
+     * @param string $serieDescription
+     */
+    public function setSerieDescription($serieDescription){
+        $this->serieDescription = $serieDescription;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getSerieStatus(){
+        return $this->serieStatus;
+    }
+    
+    /**
+     * @param string $serieStatus
+     */
+    public function setSerieStatus($serieStatus)
+    {
+        $this->serieStatus = $serieStatus;
     }
 }
