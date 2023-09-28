@@ -156,7 +156,7 @@ class Facturacom44 extends HttpClientV3
      * @param Factura33 $factura
      * @return boolean|Error
      */
-    public function createFactura33($factura)
+    public function createFactura44($factura)
     {
         $this->API_VERSION = 'v4';
         if ($factura->validate()) {
