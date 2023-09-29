@@ -20,7 +20,7 @@ La forma preferida para instalar esta extensión es a través de [composer](http
 Para instalar, ejecutar
 
 ```
-$ php composer.phar require inquid/yii2-facturacom
+composer require inquid/yii2-facturacom
 ```
 
 or agregar
