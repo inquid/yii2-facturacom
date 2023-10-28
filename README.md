@@ -12,6 +12,8 @@ yii2-facturacom
 Librería para usar el API de http://docs.facturacom.apiary.io/#
 
 
+# IMPORTANT: This package has been updated recently and it's working but a new more modern extension is being developed for Laravel
+[Laravel Package](https://github.com/inquid/laravel-facturacom)
 
 ## Instalación
 
